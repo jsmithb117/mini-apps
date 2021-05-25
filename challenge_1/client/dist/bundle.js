@@ -100,13 +100,43 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 
 /***/ }),
 
-/***/ "./client/src/App.jsx":
-/*!****************************!*\
-  !*** ./client/src/App.jsx ***!
-  \****************************/
+/***/ "./client/src/components/Date.jsx":
+/*!****************************************!*\
+  !*** ./client/src/components/Date.jsx ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _components_Finder_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Finder.jsx */ \"./client/src/components/Finder.jsx\");\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_0__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_Finder_jsx__WEBPACK_IMPORTED_MODULE_2__.default, null), document.getElementById('app'));\n\n//# sourceURL=webpack://challenge_1/./client/src/App.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar Date = function Date(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"date\"\n  }, props.date);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Date);\n\n//# sourceURL=webpack://challenge_1/./client/src/components/Date.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Description.jsx":
+/*!***********************************************!*\
+  !*** ./client/src/components/Description.jsx ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar Description = function Description(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"description\"\n  }, props.description);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Description);\n\n//# sourceURL=webpack://challenge_1/./client/src/components/Description.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Event.jsx":
+/*!*****************************************!*\
+  !*** ./client/src/components/Event.jsx ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Date_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Date.jsx */ \"./client/src/components/Date.jsx\");\n/* harmony import */ var _Description_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Description.jsx */ \"./client/src/components/Description.jsx\");\n\n\n\n\nvar Event = function Event(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"event\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Date_jsx__WEBPACK_IMPORTED_MODULE_1__.default, {\n    date: props.event.date\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Description_jsx__WEBPACK_IMPORTED_MODULE_2__.default, {\n    description: props.event.description\n  }));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Event);\n\n//# sourceURL=webpack://challenge_1/./client/src/components/Event.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Events.jsx":
+/*!******************************************!*\
+  !*** ./client/src/components/Events.jsx ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Event_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Event.jsx */ \"./client/src/components/Event.jsx\");\n\n\n\nvar Events = function Events(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"events\"\n  }, props.eventData.map(function (event, index) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Event_jsx__WEBPACK_IMPORTED_MODULE_1__.default, {\n      event: event,\n      key: 'event' + index\n    });\n  }));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Events);\n\n//# sourceURL=webpack://challenge_1/./client/src/components/Events.jsx?");
 
 /***/ }),
 
@@ -116,7 +146,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
   \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar App = function App() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"Renders stuff\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://challenge_1/./client/src/components/Finder.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Events_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Events.jsx */ \"./client/src/components/Events.jsx\");\nfunction _typeof(obj) { \"@babel/helpers - typeof\"; if (typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }; } return _typeof(obj); }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function\"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }\n\nfunction _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }\n\nfunction _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }\n\nfunction _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === \"object\" || typeof call === \"function\")) { return call; } return _assertThisInitialized(self); }\n\nfunction _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return self; }\n\nfunction _isNativeReflectConstruct() { if (typeof Reflect === \"undefined\" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === \"function\") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }\n\nfunction _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }\n\n\n\n\nvar Finder = /*#__PURE__*/function (_React$Component) {\n  _inherits(Finder, _React$Component);\n\n  var _super = _createSuper(Finder);\n\n  function Finder(props) {\n    var _this;\n\n    _classCallCheck(this, Finder);\n\n    _this = _super.call(this, props);\n    _this.state = {\n      serverURL: 'http://localhost:3000',\n      search: 'William of Orange',\n      eventData: [],\n      page: 1,\n      sortBy: 'date',\n      sortOrder: 'asc',\n      limit: 10,\n      language: 'en'\n    };\n    return _this;\n  }\n\n  _createClass(Finder, [{\n    key: \"componentDidMount\",\n    value: function componentDidMount() {\n      this.getData();\n    }\n  }, {\n    key: \"getData\",\n    value: function getData() {\n      var _this2 = this;\n\n      var url = \"\\n    \".concat(this.state.serverURL, \"/events?q=\").concat(this.state.search, \"&_page=\").concat(this.state.page, \"&_sort=\").concat(this.state.sortBy, \"&order=\").concat(this.state.sortOrder, \"&_limit=\").concat(this.state.limit);\n      fetch(url).then(function (serverResponse) {\n        return serverResponse.json();\n      }).then(function (json) {\n        _this2.setState({\n          eventData: json\n        });\n      }).catch(function (err) {\n        if (err) {\n          console.error('Error in componentDidMount: ', err);\n        }\n      });\n    }\n  }, {\n    key: \"render\",\n    value: function render() {\n      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n        className: \"finder\"\n      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Events_jsx__WEBPACK_IMPORTED_MODULE_1__.default, {\n        eventData: this.state.eventData,\n        page: this.state.page,\n        sortBy: this.state.sortBy,\n        sortOrder: this.state.sortOrder,\n        language: this.state.language\n      }));\n    }\n  }]);\n\n  return Finder;\n}(react__WEBPACK_IMPORTED_MODULE_0__.Component);\n\n;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Finder);\n\n//# sourceURL=webpack://challenge_1/./client/src/components/Finder.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/index.jsx":
+/*!******************************!*\
+  !*** ./client/src/index.jsx ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _components_Finder_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Finder.jsx */ \"./client/src/components/Finder.jsx\");\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_0__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_Finder_jsx__WEBPACK_IMPORTED_MODULE_2__.default, null), document.getElementById('app'));\n\n//# sourceURL=webpack://challenge_1/./client/src/index.jsx?");
 
 /***/ })
 
@@ -180,7 +220,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./client/src/App.jsx");
+/******/ 	var __webpack_exports__ = __webpack_require__("./client/src/index.jsx");
 /******/ 	
 /******/ })()
 ;
