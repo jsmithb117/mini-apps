@@ -7,6 +7,7 @@ const Event = (props) => {
     <div className="event">
       <Date date={props.event.date} />
       <Description description={props.event.description} />
+      <br />
     </div>
   );
 };

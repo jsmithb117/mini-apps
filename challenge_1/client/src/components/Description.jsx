@@ -3,7 +3,7 @@ import React from 'react';
 const Description = (props) => {
   return (
     <div className = "description">
-      {props.description}
+      Description: {props.description}
     </div>
   );
 };
