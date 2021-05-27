@@ -1,6 +1,7 @@
 import React from 'react';
 import Chart from 'chart.js/auto';
 import LineChart from './LineChart.jsx';
+import DateRange from './DateRange.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,20 +22,16 @@ class App extends React.Component {
       let coinDeskData = [];
       let keys = Object.keys(json.bpi);
       let values = Object.values(json.bpi);
-      console.log('json: ', json);
       keys.forEach((key) => {
         coinDeskData.push({
           time: key,
           value: json.bpi[key]
         });
       });
-      console.log('keys: ', keys);
       this.setState({
         coinDeskData,
         dateBegin: keys[0],
         dateEnd: keys[keys.length - 1]
-      }, () => {
-        console.log('this.state.coinDeskData: ', this.state.coinDeskData);
       });
     })
     .catch((err) => {
@@ -42,11 +39,14 @@ class App extends React.Component {
         console.error('Error in getCoinDeskRange: ', err);
       }
     });
-  }
+  };
 
   render() {
     return (
       <div className="app">
+        <div className="dates">
+          <DateRange dateBegin={this.state.dateBegin} dateEnd={this.state.dateEnd} />
+        </div>
         <div className="main chart-wrapper">
           <LineChart
             data={this.state.coinDeskData}
@@ -61,7 +61,7 @@ class App extends React.Component {
       </div>
       </div>
     );
-  }
-}
+  };
+};
 
 export default App;
