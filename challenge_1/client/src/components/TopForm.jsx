@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchForm = (props) => (
+const TopForm = (props) => (
   <div className="form">
     <form onSubmit={props.formSubmitHandler} onChange={props.formChangeHandler}>
       <label>
@@ -13,4 +13,4 @@ const SearchForm = (props) => (
   </div>
 );
 
-export default SearchForm;
+export default TopForm;

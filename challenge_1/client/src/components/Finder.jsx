@@ -1,7 +1,7 @@
 import React from 'react';
 import Events from './Events.jsx';
-import SearchForm from './SearchForm.jsx';
-import PageForm from './PageForm.jsx';
+import TopForm from './TopForm.jsx';
+import BottomForm from './BottomForm.jsx';
 
 class Finder extends React.Component {
   constructor(props) {
@@ -10,7 +10,9 @@ class Finder extends React.Component {
       serverURL: 'http://localhost:3000',
       search: 'William of Orange',
       eventData: [],
+      offset: 0,
       page: 1,
+      pageCount: 1,
       sortBy: 'date',
       sortOrder: 'asc',
       limitForm: 10,
@@ -22,6 +24,7 @@ class Finder extends React.Component {
     this.pageHandler = this.pageHandler.bind(this);
     this.limitChangeHandler = this.limitChangeHandler.bind(this);
     this.limitSubmitHandler = this.limitSubmitHandler.bind(this);
+    this.pageClickHandler = this.pageClickHandler.bind(this);
   }
 
   componentDidMount() {
@@ -29,17 +32,19 @@ class Finder extends React.Component {
   };
 
   getData() {
-    const url = `${this.state.serverURL}/events?q=${this.state.search}&_page=${this.state.page}&_sort=${this.state.sortBy}&order=${this.state.sortOrder}&_limit=${this.state.limit}`;
+    const url = `${this.state.serverURL}/events?q=${this.state.search}&_page=${this.state.page + this.state.offset}&_sort=${this.state.sortBy}&order=${this.state.sortOrder}&_limit=${this.state.limit}`;
     fetch(url)
       .then((serverResponse) => {
-        return serverResponse.json();
+        this.setState({ pageCount: Math.ceil(serverResponse.headers.get('X-Total-Count') / this.state.limit) });
+        return serverResponse.json()
       })
       .then((json) => {
-        this.setState({ eventData: json });
+        this.setState({
+          eventData: json
+        });
       })
       .catch((err) => {
         if (err) {
-          debugger;
           console.error('Error in componentDidMount: ', err);
         }
       });
@@ -49,7 +54,7 @@ class Finder extends React.Component {
     this.setState({ search: event.target.value });
   };
 
-  formSubmitHandler (event) {
+  formSubmitHandler () {
     event.preventDefault();
     this.getData();
   };
@@ -71,6 +76,14 @@ class Finder extends React.Component {
     });
   };
 
+  pageClickHandler (pageData) {
+    let selected = pageData.selected;
+    let offset = Math.ceil(selected);
+    this.setState({ offset: offset }, () => {
+      this.getData();
+    });
+  }
+
   render() {
     return (
       <div className="finder">
@@ -78,9 +91,9 @@ class Finder extends React.Component {
           Historical Events Finder
         </div>
         <br />
-          <SearchForm formChangeHandler={this.formChangeHandler} formSubmitHandler={this.formSubmitHandler} />
+          <TopForm formChangeHandler={this.formChangeHandler} formSubmitHandler={this.formSubmitHandler} />
           <Events eventData={this.state.eventData} page={this.state.page} sortBy={this.state.sortBy} sortOrder={this.state.sortOrder} language={this.state.language} />
-          <PageForm page={this.state.page} pageHandler={this.pageHandler} limitChangeHandler={this.limitChangeHandler} limitSubmitHandler={this.limitSubmitHandler} />
+          <BottomForm page={this.state.page} pageHandler={this.pageHandler} limitChangeHandler={this.limitChangeHandler} limitSubmitHandler={this.limitSubmitHandler} pageCount={this.state.pageCount} pageClickHandler={this.pageClickHandler} />
       </div>
     );
   };
