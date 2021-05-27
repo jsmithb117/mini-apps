@@ -9,11 +9,11 @@ class App extends React.Component {
     this.state = {
       coinDeskData: []
     };
-  }
+  };
 
   componentDidMount() {
     this.getCoinDeskRecent();
-  }
+  };
 
   getCoinDeskRecent () {
     fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
