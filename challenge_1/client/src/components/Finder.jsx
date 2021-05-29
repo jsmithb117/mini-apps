@@ -16,7 +16,7 @@ class Finder extends React.Component {
       sortBy: 'date',
       sortOrder: 'asc',
       limitForm: 10,
-      limit: 10,
+      limit: 5,
       language: 'en'
     };
     this.formChangeHandler = this.formChangeHandler.bind(this);
@@ -32,7 +32,7 @@ class Finder extends React.Component {
   };
 
   getData() {
-    const url = `${this.state.serverURL}/events?q=${this.state.search}&_page=${this.state.page + this.state.offset}&_sort=${this.state.sortBy}&order=${this.state.sortOrder}&_limit=${this.state.limit}`;
+    const url = `${this.state.serverURL}/events?q=${this.state.search}&_page=${this.state.page + this.state.offset}&_limit=${this.state.limit}`;
     fetch(url)
       .then((serverResponse) => {
         this.setState({ pageCount: Math.ceil(serverResponse.headers.get('X-Total-Count') / this.state.limit) });

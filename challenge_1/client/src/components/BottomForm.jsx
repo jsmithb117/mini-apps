@@ -12,13 +12,13 @@ const BottomForm = (props) => {
       <input type="submit" value="Change limit" />
     </form>
     <ReactPaginate
-      previousLabel={'previous'}
-      nextLabel={'next'}
+      previousLabel={'Prev'}
+      nextLabel={'Next'}
       breakLabel={'...'}
       breakClassName={'break-me'}
       pageCount={props.pageCount}
-      marginPagesDisplayed={10}
-      pageRangeDisplayed={10}
+      // marginPagesDisplayed={10}
+      pageRangeDisplayed={5}
       onPageChange={props.pageClickHandler}
       containerClassName={'pagination'}
       activeClassName={'active'}
