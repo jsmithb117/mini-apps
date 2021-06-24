@@ -1,0 +1,38 @@
+body {
+  background-color: white;
+}
+.rows {
+  display: grid;
+  grid-template-columns: repeat(auto);
+  grid-template-rows: repeat(auto);
+  /* background-color: darkgreen; */
+}
+
+.covered {
+  background-color: gray;
+  border-style: solid;
+  border-color: darkgreen;
+  color: gray;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.uncovered {
+  /* background-color: #4CAF50; */
+  border-style: solid;
+  border-color: red;
+  /* color: gray; */
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.piece {
+  height: 70px;
+  width: 70px;
+}
