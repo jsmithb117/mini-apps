@@ -38,9 +38,8 @@ class App extends React.Component {
       let col = classArray[3].split('l')[1];
 
       this.setState((state) => {
-        if (state.board[row][col].val === 'X' && !state.board[row][col].markedAsMine) {
+        if (state.board[row][col].val === 'X' && !state.board[row][col].markedAsMine && !state.win && !state.loss) {
           state.loss = true;
-          document.body.style = 'background: red;';
         } else {
           state.board[row][col].markedAsMine = true;
           state = zeroFinder(parseInt(row), parseInt(col), state.board);
@@ -51,6 +50,10 @@ class App extends React.Component {
           document.body.style = 'background: green;';
           console.log('You win!');
         }
+        if (this.state.loss && !this.state.win) {
+          document.body.style = 'background: red;';
+          console.log('Sorry, try again.');
+        }
       })
     }
   }
@@ -60,20 +63,20 @@ class App extends React.Component {
     const board = boardCreator();
     this.setState({ board }, () => {
       let newBoard = [...this.state.board];
-      console.log(JSON.stringify(newBoard));
+      // console.log(JSON.stringify(newBoard));
       for (let i = 0; i < newBoard.length; i++) {
         newBoard[i] = newBoard[i].map((elem) => {
           return elem.val;
         })
       }
-      console.table(newBoard);
+      // console.table(newBoard);
     });
   }
 
   componentDidUpdate() {
-    if (this.state.loss) {
-      console.log('Sorry, try again.')
-    }
+    // if (this.state.loss) {
+    //   console.log('Sorry, try again.')
+    // }
   }
 
   render() {
