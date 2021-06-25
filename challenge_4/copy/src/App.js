@@ -38,10 +38,11 @@ class App extends React.Component {
       let col = classArray[3].split('l')[1];
 
       this.setState((state) => {
-        if (state.board[row][col].val === 'X' && event.target.innerHTML !== '?') {
+        if (state.board[row][col].val === 'X' && !state.board[row][col].markedAsMine) {
           state.loss = true;
           document.body.style = 'background: red;';
         } else {
+          state.board[row][col].markedAsMine = true;
           state = zeroFinder(parseInt(row), parseInt(col), state.board);
         }
         return state;

@@ -8,7 +8,7 @@ let boardCreator = (length = 10, width = 10, mines = 10) => {
       let piece = {
         val: 0,
         uncovered: false,
-        // setAsMine: false,
+        markedAsMine: false,
         row: rows,
         col: cols,
       };
