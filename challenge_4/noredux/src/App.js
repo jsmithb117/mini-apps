@@ -26,11 +26,14 @@ class App extends React.Component {
     event.preventDefault();
     //if left click, uncovers piece.  If right click, toggles mine marker
     if (event.type === "contextmenu" && !this.state.loss && !this.state.win) {
-      if (event.target.style.color === 'gray' || !event.target.style.color) {
-        event.target.style.color = 'black';
-      } else if (event.target.style.color === 'black') {
-        event.target.style.color = 'gray';
-      }
+      event.target.style.color = !event.target.style.color ? 'black' : null
+      event.target.innerHTML = event.target.innerHTML === '?' ? 'M' : '?';
+      console.log('event.target: ', event);
+      // if (!event.target.style.color) {
+      //   event.target.style.color = 'black';
+      // } else if (event.target.style.color === 'black') {
+      //   event.target.style.color = 'gray';
+      // }
     } else if (event.type === 'click') {
       let className = event.target.className;
       let classArray = className.split(' ');
