@@ -6,7 +6,7 @@
 ## Historical Events Finder:
 
 ### Description:
-   parses through historical events using server side pagination using a JSON server
+   Parses and searches historical events with server side pagination using a JSON server.
 
 ### Tools used:
     React, Webpack, Json-server, Babel
@@ -14,23 +14,21 @@
   ![](/historicalEventsFinder/historicalEventsFinder.png)
 
 ### How to start?:
-####  clone the mini-apps project:
-    git clone https://github.com/jsmithb117/mini-apps-2.git
+####  Clone the mini-apps project:
+    git clone https://github.com/jsmithb117/mini-apps.git
 
-#### navigate to mini-apps-2/historicalEventsFinder then do:
+#### Navigate to mini-apps/historicalEventsFinder then do:
     npm install
-
-#### then do:
     npm start
 
  ### Improvements I would  if I were to continue on this app:
      * Improve styling
      * Render the data in a more organized manner
 
-## challenge2 BTC 30day price chart:
+## BTC 30day price chart:
 
 ### Description:
-    Pulls the last 31 daily average prices of bitcoin from the [CoinDesk API](https://www.coindesk.com/coindesk-api) and graphs them out
+    Pulls the last 31 daily average prices of Bitcoin from the [CoinDesk API](https://www.coindesk.com/coindesk-api) and graphs them out using chart.js
 
 ### Tools used:
     React, Webpack, Babel, CSS, Express, chart.js
@@ -38,13 +36,11 @@
   ![](/images/btcGraph.png)
 
 ### How to start?:
-####  clone the mini-apps project:
-    git clone https://github.com/jsmithb117/mini-apps-2.git
+####  Clone the mini-apps project:
+    git clone https://github.com/jsmithb117/mini-apps.git
 
-#### navigate to mini-apps-2/cryptoPriceChart then do:
+#### Navigate to mini-apps/cryptoPriceChart then do:
     npm install
-
-#### then do:
     npm start
 
  ### Improvements I would  if I were to continue on this app:
@@ -64,12 +60,10 @@
 
 ### How to start?:
 ####  clone the mini-apps project:
-    git clone https://github.com/jsmithb117/mini-apps-2.git
+    git clone https://github.com/jsmithb117/mini-apps.git
 
-#### navigate to mini-apps-2/bowling then do:
+#### navigate to mini-apps/bowling then do:
     npm install
-
-#### then do:
     npm start
 
  ### Improvements I would  if I were to continue on this app:
@@ -77,10 +71,10 @@
      * 'Undo' button to change a frame's score
 
 
-## challenge4 Mine sweeper:
+## Mine sweeper:
 
 ### Description:
-    Minesweeper game made with react and redux for state management
+    Minesweeper game made with React
 
 ### Tools used:
     React, Webpack, Express
@@ -89,13 +83,11 @@
 
 ### How to start?:
 ### How to start?:
-####  clone the mini-apps project:
-    git clone https://github.com/jsmithb117/mini-apps-2.git
+####  Clone the mini-apps project:
+    git clone https://github.com/jsmithb117/mini-apps.git
 
-#### navigate to mini-apps-2/bowling then do:
+#### Navigate to mini-apps/bowling then do:
     npm install
-
-#### then do:
     npm start
 
  ### Improvements I would  if I were to continue on this app:
