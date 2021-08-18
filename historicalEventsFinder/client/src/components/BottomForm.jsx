@@ -17,7 +17,6 @@ const BottomForm = (props) => {
       breakLabel={'...'}
       breakClassName={'break-me'}
       pageCount={props.pageCount}
-      // marginPagesDisplayed={10}
       pageRangeDisplayed={5}
       onPageChange={props.pageClickHandler}
       containerClassName={'pagination'}

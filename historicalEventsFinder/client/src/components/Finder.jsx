@@ -39,15 +39,9 @@ class Finder extends React.Component {
         return serverResponse.json()
       })
       .then((json) => {
-        this.setState({
-          eventData: json
-        });
+        this.setState({ eventData: json });
       })
-      .catch((err) => {
-        if (err) {
-          console.error('Error in componentDidMount: ', err);
-        }
-      });
+      .catch((err) =>  console.error('Error in componentDidMount: ', err));
   };
 
   formChangeHandler (event) {
