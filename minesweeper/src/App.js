@@ -3,50 +3,61 @@ import Board from './components/Board.jsx';
 import boardCreator from './features/board/boardCreator';
 import zeroFinder from './features/board/zeroFinder';
 import checkWin from './features/board/checkWin';
-
+import initialState from './features/board/initialState';
 import './App.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      board: [
-        [{
-          val: null,
-          uncovered: false
-        }]
-      ],
-      win: false,
-      loss: false
-    }
+    this.state = initialState;
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    const board = boardCreator();
+    this.setState({ board }, () => {
+      let newBoard = [...this.state.board];
+      for (let i = 0; i < newBoard.length; i++) {
+        newBoard[i] = newBoard[i].map((elem) => {
+          return elem.val;
+        })
+      }
+    });
+
   }
 
   handleClick (event) {
     event.preventDefault();
-    //if left click, uncovers piece.  If right click, toggles mine marker
-    if (event.type === "contextmenu" && !this.state.loss && !this.state.win) {
+    let leftClick = event.type === "click";
+    let rightClick = event.type === "contextmenu";
+
+    if (this.state.loss || this.state.win) {
+      return;
+    }
+
+    let row = event.target.className.split(' ')[2].split('w')[1];  //There is probably a better way to store/retrieve the rows and cols
+    let col = event.target.className.split(' ')[3].split('l')[1];
+
+    if (rightClick) {
       event.target.style.color = !event.target.style.color ? 'black' : null
       event.target.innerHTML = event.target.innerHTML === '?' ? 'M' : '?';
-      console.log('event.target: ', event);
-      // if (!event.target.style.color) {
-      //   event.target.style.color = 'black';
-      // } else if (event.target.style.color === 'black') {
-      //   event.target.style.color = 'gray';
-      // }
-    } else if (event.type === 'click') {
-      let className = event.target.className;
-      let classArray = className.split(' ');
-      let row = classArray[2].split('w')[1];
-      let col = classArray[3].split('l')[1];
-
       this.setState((state) => {
-        if (state.board[row][col].val === 'X' && !state.board[row][col].markedAsMine && !state.win && !state.loss) {
+        state.board[row][col].markedAsMine = event.target.innerHTML === 'M';
+        return state;
+      })
+    }
+
+    if (leftClick) {
+      this.setState((state) => {
+        let pieceIsX = state.board[row][col].val === 'X';
+        let pieceIsMarkedAsMine = state.board[row][col].markedAsMine
+
+        if (pieceIsX && !pieceIsMarkedAsMine) {
           state.loss = true;
-        } else {
-          state.board[row][col].markedAsMine = true;
-          state = zeroFinder(parseInt(row), parseInt(col), state.board);
+          return state;
         }
+
+        state = zeroFinder(parseInt(row), parseInt(col), state.board);
         return state;
       }, () => {
         if (checkWin(this.state.board)) {
@@ -59,27 +70,6 @@ class App extends React.Component {
         }
       })
     }
-  }
-
-  componentDidMount() {
-    //Creates a new board and loads into state.
-    const board = boardCreator();
-    this.setState({ board }, () => {
-      let newBoard = [...this.state.board];
-      // console.log(JSON.stringify(newBoard));
-      for (let i = 0; i < newBoard.length; i++) {
-        newBoard[i] = newBoard[i].map((elem) => {
-          return elem.val;
-        })
-      }
-      // console.table(newBoard);
-    });
-  }
-
-  componentDidUpdate() {
-    // if (this.state.loss) {
-    //   console.log('Sorry, try again.')
-    // }
   }
 
   render() {

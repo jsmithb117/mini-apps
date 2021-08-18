@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Piece = (props) => {
-  const buttonColor = props.piece.val === 0 ? '' :
+  const buttonColor = props.piece.val === 0 ? null :
   props.piece.val === 1 ? 'blue' :
   props.piece.val === 2 ? 'green' :
   props.piece.val === 3 ? 'red' :
