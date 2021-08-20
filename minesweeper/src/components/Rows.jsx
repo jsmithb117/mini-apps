@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import BoardContext from './Context';
+import BoardContext from '../features/board/Context';
 import Row from './Row.jsx';
 
 const Rows = (props) => {

@@ -5,7 +5,7 @@ import zeroFinder from './features/board/zeroFinder';
 import checkWin from './features/board/checkWin';
 import initialState from './features/board/initialState';
 import './App.css';
-import BoardContext from './components/Context';
+import BoardContext from './features/board/Context';
 
 class App extends React.Component {
   constructor(props) {
