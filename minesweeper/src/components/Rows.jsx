@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import BoardContext from '../features/board/Context';
 import Row from './Row.jsx';
 
 const Rows = (props) => {
-  const rowsMap = props.board.map((elem, index) => (
+  const board = useContext(BoardContext);
+  const rowsMap = board.map((elem, index) => (
     <Row row={elem} key={"row".concat(index)} handleClick={props.handleClick} />
   ));
   return (
