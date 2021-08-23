@@ -7,6 +7,7 @@ const Rows = (props) => {
   const rowsMap = board.map((elem, index) => (
     <Row row={elem} key={"row".concat(index)} handleClick={props.handleClick} />
   ));
+
   return (
     <div className="rows">
       {rowsMap}

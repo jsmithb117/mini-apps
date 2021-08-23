@@ -9,7 +9,8 @@ const Piece = (props) => {
   props.piece.val === 5 ? 'maroon' :
   props.piece.val === 6 ? 'turquoise' :
   props.piece.val === 7 ? 'black' :
-  props.piece.val === 8 ? 'gray' : undefined;
+  props.piece.val === 8 ? 'gray' :
+  undefined;
 
   const uncoveredClassName = `uncovered piece row${props.piece.row} col${props.piece.col} ${buttonColor}`;
   const coveredClassName = `covered piece row${props.piece.row} col${props.piece.col}`;
@@ -21,6 +22,7 @@ const Piece = (props) => {
     </button>
     )
   }
+
   return (
     <button className={coveredClassName} onClick={props.handleClick} onContextMenu={props.handleClick}>
       {'?'}
