@@ -39,7 +39,7 @@ class App extends React.Component {
     let row = event.target.className.split(' ')[2].split('w')[1];  //There is probably a better way to store/retrieve the rows and cols
     let col = event.target.className.split(' ')[3].split('l')[1];
 
-    if (rightClick) {
+    if (rightClick && !this.state.board[row][col].uncovered) {
       event.target.style.color = !event.target.style.color ? 'black' : null
       event.target.innerHTML = event.target.innerHTML === '?' ? 'M' : '?';
       this.setState((state) => {
